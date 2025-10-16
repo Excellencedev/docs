@@ -181,15 +181,58 @@ figure img {
   height: auto !important;
 }
 
-/* Make markdown table content slightly smaller for better fit */
+/*
+- Make tables responsive by allowing horizontal scrolling.
+- Refine table header and cell padding for better spacing.
+- Adjust font sizes for readability on different screen sizes.
+*/
+.markdown div:has(> table) {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  margin: 1.5em 0;
+}
+
 .markdown table {
+  width: 100%;
+  border-collapse: collapse;
   font-size: 0.9rem;
+  border: none;
+  margin: 0;
 }
 
 .markdown table th,
 .markdown table td {
-  font-size: inherit;
-  line-height: 1.4;
+  padding: 1rem 1.25rem;
+  border: none;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  line-height: 1.6;
+  font-size: 0.875rem;
+}
+
+.markdown table tr:last-child td {
+  border-bottom: none;
+}
+
+.markdown table th {
+  font-weight: 600;
+  background-color: var(--ifm-table-head-background);
+  text-align: left;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .markdown table {
+    font-size: 0.85rem;
+  }
+
+  .markdown table th,
+  .markdown table td {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+  }
 }
 
 .youtube-embed__container {
