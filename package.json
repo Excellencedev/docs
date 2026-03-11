@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "build": "docusaurus build && bun run build:repomix",
+    "start": "node init && docusaurus start",
+    "build": "node init && docusaurus build && bun run build:repomix",
     "format": "biome format . --write",
-    "build:repomix": "repomix --style xml --include '**/*.md,**/*.mdx' --output ./build/ai.txt && bun run scripts/cleanup-ai-txt.ts",
+    "build:repomix": "node init && repomix --style xml --include '**/*.md,**/*.mdx' --output ./build/ai.txt && bun run scripts/cleanup-ai-txt.ts",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
